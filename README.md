@@ -14,7 +14,7 @@ An efficient tree-based data structure for detecting duplicate number values in 
 
 📦 Installation
 
-      composer require alireza-malekei/number-expansion-tree
+      composer require alireza_malekei/number-expansion-tree:dev-main
 
 🚀 Usage
 
