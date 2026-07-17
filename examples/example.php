@@ -25,7 +25,7 @@ printf("┃ %-18s ┃ %8d ┃\n", "Repeating Entries", $chain->repeatingCount);
 printf("┃ %-18s ┃ %8d ┃\n", "Sole Entries", $chain->soleCount);
 separator();
 
-// Duplicates list
+// Repeating list
 if (!empty($chain->repeating)) {
     echo PHP_EOL . "🔁 REPEATING (showing each occurrence):" . PHP_EOL;
     foreach ($chain->repeating as $index => $number) {

@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'alireza_malekei/number-expansion-tree',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '847a749fdffe6cdff579272b96e6b4e6dfb8f57d',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'alireza_malekei/number-expansion-tree' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '847a749fdffe6cdff579272b96e6b4e6dfb8f57d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
