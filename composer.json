@@ -1,0 +1,37 @@
+{
+    "name": "alireza_malekei/number-expansion-tree",
+    "description": "An efficient tree structure for finding duplicate number values (ex. phone numbers) in fixed-length strings",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "trie",
+        "sole entries",
+        "repeating entries",
+        "tree",
+        "expansion-tree"
+    ],
+    "authors": [
+        {
+            "name": "Alireza Malekei",
+            "email": "alirezaMalekei72@gmail.con",
+            "homepage": "https://github.com/alirezaMalekei",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Module\\": "Module/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "suggest": {
+        "examples": "See the examples/ directory for demonstration code"
+    }
+}
