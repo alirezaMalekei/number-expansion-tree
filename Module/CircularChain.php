@@ -38,11 +38,11 @@ class CircularChain
         $current->next = $this->head;
     }
 
-    public function handle(array $phones): void
+    public function insert(array $values): void
     {
-        foreach ($phones as $phone) {
+        foreach ($values as $value) {
             $extended = false;
-            foreach (str_split($phone) as $number) {
+            foreach (str_split($value) as $number) {
                 if ($this->head->numbers[$number] == 0) {
                     $extended = true;
                     $this->head->numbers[$number] = 1;
@@ -54,11 +54,11 @@ class CircularChain
             $this->totalCount++;
             if ($extended) {
                 $this->soleCount++;
-                $this->soles[] = $phone;
+                $this->soles[] = $value;
                 continue;
             }
             $this->repeatingCount++;
-            $this->repeating[] = $phone;
+            $this->repeating[] = $value;
         }
     }
 }

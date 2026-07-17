@@ -8,7 +8,7 @@ $phones = ['09138332910', '09135633375', '09138332910', '09138332910', '09135633
 
 $chain = new CircularChain(10);
 
-$chain->handle($phones);
+$chain->insert($phones);
 
 // Helper to draw a separator line
 function separator(int $length = 50): void {
