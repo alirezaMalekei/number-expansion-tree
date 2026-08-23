@@ -2,13 +2,11 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Module\CircularChain;
+use Module\SoleDetectorTrie;
 
 $phones = ['09138332910', '09135633375', '09138332910', '09138332910', '09135633375', '09121001010'];
 
-$chain = new CircularChain(10);
-
-$chain->insert($phones);
+$chain = new SoleDetectorTrie($phones);
 
 // Helper to draw a separator line
 function separator(int $length = 50): void {
