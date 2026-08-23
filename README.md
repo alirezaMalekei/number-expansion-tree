@@ -32,9 +32,7 @@ Basic Example
           '09121001010'
       ];
       
-      $chain = new CircularChain(10); // Fixed length = 10
-
-      $chain->insert($phones);
+     $chain = new SoleDetectorTrie($phones); // Fixed length = 10
 
 Total Count
 
