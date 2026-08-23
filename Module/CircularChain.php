@@ -2,8 +2,7 @@
 
 namespace Module;
 
-
-class CircularChain
+class SoleDetectorTrie
 {
     public Node $head;
 
@@ -16,14 +15,16 @@ class CircularChain
     public array $repeating;
     public array $soles;
 
-    public function __construct(int $depth)
+    public function __construct(array $values)
     {
         $this->repeatingCount = 0;
         $this->totalCount = 0;
         $this->soleCount = 0;
         $this->repeating = [];
         $this->soles = [];
+        $depth = strlen($values[0] ?? 1) - 1;
         $this->createDataStructure($depth);
+        $this->insert($values);
     }
 
     private function createDataStructure(int $depth): void
@@ -38,7 +39,7 @@ class CircularChain
         $current->next = $this->head;
     }
 
-    public function insert(array $values): void
+    private function insert(array $values): void
     {
         foreach ($values as $value) {
             $extended = false;
