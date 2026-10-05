@@ -4,62 +4,48 @@ namespace Module;
 
 class SoleDetectorTrie
 {
-    public Node $head;
+    private array $root = [];
 
-    // counts
-    public int $repeatingCount;
-    public int $totalCount;
-    public int $soleCount;
+    public int $repeatingCount = 0;
+    public int $totalCount = 0;
+    public int $soleCount = 0;
 
-    // arrays
-    public array $repeating;
-    public array $soles;
+    public array $repeating = [];
+    public array $soles = [];
 
     public function __construct(array $values)
     {
-        $this->repeatingCount = 0;
-        $this->totalCount = 0;
-        $this->soleCount = 0;
-        $this->repeating = [];
-        $this->soles = [];
-        $depth = strlen($values[0] ?? 1) - 1;
-        $this->createDataStructure($depth);
         $this->insert($values);
-    }
-
-    private function createDataStructure(int $depth): void
-    {
-        $this->head = new Node(0);
-        $current = $this->head;
-        for ($i = 0; $i < $depth; $i++) {
-            $newNode = new Node($i + 1);
-            $current->next = $newNode;
-            $current = $newNode;
-        }
-        $current->next = $this->head;
     }
 
     private function insert(array $values): void
     {
-        foreach ($values as $value) {
-            $extended = false;
-            foreach (str_split($value) as $number) {
-                if ($this->head->numbers[$number] == 0) {
-                    $extended = true;
-                    $this->head->numbers[$number] = 1;
-                }
-                $this->head = $this->head->next;
+        $values = array_map('strval', $values);
+        $length = $values ? max(array_map('strlen', $values)) : 0;
+
+        foreach ($values as $original) {
+            // Restore lost leading zeros so all values have the same length
+            $value = str_pad($original, $length, '0', STR_PAD_LEFT);
+
+            $node = &$this->root;
+            foreach (str_split($value) as $digit) {
+                $node[$digit] ??= [];
+                $node = &$node[$digit];
             }
 
-            // ...
+            $isNew = ! isset($node['end']);
+            $node['end'] = true;
+            unset($node); // break the reference
+
             $this->totalCount++;
-            if ($extended) {
+
+            if ($isNew) {
                 $this->soleCount++;
-                $this->soles[] = $value;
-                continue;
+                $this->soles[] = $original;
+            } else {
+                $this->repeatingCount++;
+                $this->repeating[] = $original;
             }
-            $this->repeatingCount++;
-            $this->repeating[] = $value;
         }
     }
 }
